@@ -21,3 +21,8 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'registration/login.html', {'form': form})
+
+def get_json(request):
+    if request.method == 'POST':
+        with open("newdata.json", "w") as f:
+            f.write(request.body) #дописать и согласовать с фронтом посылку джсона
